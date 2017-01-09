@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SplitwiseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SplitwiseModelStoreContainer">
+    <EntitySet Name="tbl_Balance" EntityType="SplitwiseModel.Store.tbl_Balance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_MonthlyExpenditure" EntityType="SplitwiseModel.Store.tbl_MonthlyExpenditure" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Roles" EntityType="SplitwiseModel.Store.tbl_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_User" EntityType="SplitwiseModel.Store.tbl_User" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__tbl_Month__UserI__164452B1" Association="SplitwiseModel.Store.FK__tbl_Month__UserI__164452B1">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_MonthlyExpenditure" EntitySet="tbl_MonthlyExpenditure" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_User__UserRo__0519C6AF" Association="SplitwiseModel.Store.FK__tbl_User__UserRo__0519C6AF">
+      <End Role="tbl_Roles" EntitySet="tbl_Roles" />
+      <End Role="tbl_User" EntitySet="tbl_User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_Balance">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="200" />
+    <Property Name="Balance" Type="decimal" Precision="10" Scale="5" />
+  </EntityType>
+  <EntityType Name="tbl_MonthlyExpenditure">
+    <Key>
+      <PropertyRef Name="ExpID" />
+    </Key>
+    <Property Name="ExpID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Item" Type="varchar" MaxLength="500" />
+    <Property Name="DateBought" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="SharedWith" Type="varchar" MaxLength="200" />
+    <Property Name="SharedWithMe" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" MaxLength="200" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="200" />
+    <Property Name="UserRole" Type="int" />
+  </EntityType>
+  <Association Name="FK__tbl_Month__UserI__164452B1">
+    <End Role="tbl_User" Type="SplitwiseModel.Store.tbl_User" Multiplicity="0..1" />
+    <End Role="tbl_MonthlyExpenditure" Type="SplitwiseModel.Store.tbl_MonthlyExpenditure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_MonthlyExpenditure">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_User__UserRo__0519C6AF">
+    <End Role="tbl_Roles" Type="SplitwiseModel.Store.tbl_Roles" Multiplicity="0..1" />
+    <End Role="tbl_User" Type="SplitwiseModel.Store.tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="tbl_User">
+        <PropertyRef Name="UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="InsertListItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Item" Type="varchar" Mode="In" />
+    <Parameter Name="DateBought" Type="datetime" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="SharedWith" Type="varchar" Mode="In" />
+    <Parameter Name="SharedWithMe" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="UpdateBalances" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MyBalance" Type="decimal" Mode="In" />
+    <Parameter Name="MyId" Type="int" Mode="In" />
+    <Parameter Name="OtherIDs" Type="varchar" Mode="In" />
+    <Parameter Name="otherBalance" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="UpdateListItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExpID" Type="int" Mode="In" />
+    <Parameter Name="Item" Type="varchar" Mode="In" />
+    <Parameter Name="DateBought" Type="datetime" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="SharedWith" Type="varchar" Mode="In" />
+    <Parameter Name="SharedWithMe" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="updt_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="UserRole" Type="int" Mode="In" />
+  </Function>
+</Schema>

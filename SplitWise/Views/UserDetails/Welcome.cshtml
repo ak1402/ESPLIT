@@ -1,0 +1,115 @@
+﻿@model IEnumerable<DataAccessLayer.Models.MonthlyExpenditure>
+@using DataAccessLayer.Models
+@{
+    ViewBag.Title = "Welcome";
+    IEnumerable<tbl_Balance> Balances = ViewData["Balances"] as List<tbl_Balance>;
+}
+
+<h2>Welcome @User.Identity.Name</h2>
+<h3>Monthly Groceries</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table border="1" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Item)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateBought)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=> model.SharedWith)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SharedWithMe)
+        </th>
+        <th>Action</th>
+    </tr>
+ 
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model=> item.ExpID)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Item)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.DateBought)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(model=> new SplitwiseEntities().SplitwiseUsers.FirstOrDefault(user=>user.UserID == item.UserId).UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(model=> item.SharedWith)
+        </td>
+        <td>
+            @Html.DisplayFor(model=>item.SharedWithMe)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ExpID }) |
+            @if(item.UserId==Convert.ToInt32(Session["UserId"]))
+            {
+              @Html.ActionLink("Edit", "Edit", new {id = item.ExpID}, new {@class = item.UserId }) <text>|</text>
+              @Html.ActionLink("Delete", "Delete", new { id=item.ExpID })
+            }
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+
+<table>
+    <tr>        
+        <td>
+            <h3 style="color:chocolate">Total Balances</h3>
+<table>
+   @foreach (var item in Balances)
+   {
+       <tr>
+           
+           @if(item.Balance < 0)
+           {
+              <td style="color:red">@item.UserName </td>
+               <td style="color:red; padding-left:25px">Has to Pay</td>
+               <td style="color:red;padding-left:25px">Rs @( Math.Abs(Convert.ToDecimal(item.Balance)))</td>
+           }
+           else
+           {
+               <td style="color:green">@item.UserName </td>
+               <td style="color:green;padding-left:25px">Gets</td>
+                <td style="color:green;padding-left:25px">Rs @item.Balance</td>
+           }
+       </tr>
+   }
+</table>
+            </td>
+            
+            <td style="float:right; padding-left: 120px" >
+                <h3 style="color:chocolate">Individual Balances</h3>
+                <table>               
+                @Html.Action("GetIndividualBalance", "UserDetails")
+                </table>
+            </td>
+         </tr>
+
+</table>
+
+

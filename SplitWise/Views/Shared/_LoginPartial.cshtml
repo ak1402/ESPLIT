@@ -1,0 +1,26 @@
+﻿
+@if (Request.IsAuthenticated) {
+    <text>
+       <li>@Html.ActionLink("Hello "+ User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li>@Html.ActionLink("Dashboard", "Welcome", "UserDetails")</li>
+  
+        @if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+        {
+            
+           <li> @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Others", "ManageOthersAccount", "Account") </li>
+        }
+        
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        }
+       
+    </text>
+} else {
+    
+        
+       <li> @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    
+}
+    

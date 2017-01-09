@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DataAccessLayer.Models.SplitwiseUser>
+@using DataAccessLayer;
+@{
+    List<string> idSharedWithCheck = ViewData["StringListIds"] as List<string>;
+    bool? IsSharedWithMeCheck = ViewData["IsSharedWithMe"] as bool?;
+}
+<ul>
+    @foreach (var User in Model)
+    {
+        if (idSharedWithCheck != null )
+        {
+            if (User.UserID == Convert.ToInt32(Session["UserID"]))
+                {
+                    if ((bool)IsSharedWithMeCheck)
+                    {
+                        <li><input type="checkbox" name="UserIdCheck" value = @User.UserID checked="checked"/>Including Myself</li>        
+                    }
+                    else
+                    {
+                        <li><input type="checkbox" name="UserIdCheck" value = @User.UserID />Including Myself</li>        
+                    }
+                }
+             else 
+                {
+                    if (idSharedWithCheck.Contains(User.UserID.ToString()))
+                    {
+                    <li><input type="checkbox" name="UserIdCheck" value = @User.UserID checked="checked"/> @User.UserName</li>
+                    }
+                    else
+                    {
+                        <li><input type="checkbox" name="UserIdCheck" value = @User.UserID />@User.UserName</li>        
+                    }   
+                    
+                }
+            
+        }
+        else
+        {
+             if(User.UserID == Convert.ToInt32(Session["UserID"]))
+                {
+                    <li><input type="checkbox" name="UserIdCheck" value = @User.UserID />Including Myself</li>
+        
+                }
+             else
+                {  
+                    <li><input type="checkbox" name="UserIdCheck" value= @User.UserID />@User.UserName</li>
+                }
+        }
+    }
+    
+</ul>

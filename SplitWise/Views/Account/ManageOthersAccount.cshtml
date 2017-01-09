@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DataAccessLayer.Models.SplitwiseUser>
+
+@{
+    ViewBag.Title = "ManageOthersAccount";
+}
+
+<h2>List Of Users</h2>
+
+<table border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserRole)
+        </th>
+        
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserRole)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "EditOthers", new { id=item.UserID }) |
+            @Html.ActionLink("Details", "DetailsOthers", new { id=item.UserID}) |
+            @Html.ActionLink("Delete", "DeleteOthers", new { id=item.UserID})
+        </td>
+    </tr>
+}
+
+</table>

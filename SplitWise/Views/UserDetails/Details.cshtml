@@ -1,0 +1,57 @@
+﻿@model DataAccessLayer.Models.MonthlyExpenditure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MonthlyExpenditure</legend>
+
+    <div class="display-label" style="font-weight:bolder">
+         @Html.DisplayNameFor(model => model.ExpID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExpID)
+    </div>
+
+    <div class="display-label" style="font-weight:bolder">
+         @Html.DisplayNameFor(model => model.Item)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Item)
+    </div>
+
+    <div class="display-label" style="font-weight:bolder">
+         @Html.DisplayNameFor(model => model.DateBought)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateBought)
+    </div>
+
+    <div class="display-label" style="font-weight:bolder">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label" style="font-weight:bolder">
+         @Html.DisplayNameFor(model => model.UserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+
+    <div class="display-label" style="font-weight:bolder">
+         @Html.DisplayNameFor(model => model.SharedWith)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SharedWith)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ExpID}) |
+    @Html.ActionLink("Back to List", "Welcome")
+</p>

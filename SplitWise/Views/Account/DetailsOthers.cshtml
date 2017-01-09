@@ -1,0 +1,44 @@
+﻿@model DataAccessLayer.Models.SplitwiseUser
+
+@{
+    ViewBag.Title = "DetailsOthers";
+}
+
+<h2>DetailsOthers</h2>
+
+<fieldset>
+    <legend>SplitwiseUser</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserPassword)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserPassword)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserRole)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SplitWiseUserRoles.RoleName)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditOthers", new { id=Model.UserID }) |
+    @Html.ActionLink("Back to List", "ManageOthersAccount")
+</p>

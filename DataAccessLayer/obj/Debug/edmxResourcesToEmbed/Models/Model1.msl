@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SplitwiseModelStoreContainer" CdmEntityContainer="SplitwiseEntities">
+    <EntitySetMapping Name="SplitwiseUsers">
+      <EntityTypeMapping TypeName="SplitwiseModel.SplitwiseUser">
+        <MappingFragment StoreEntitySet="tbl_User">
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SplitWiseUserRoles">
+      <EntityTypeMapping TypeName="SplitwiseModel.SplitWiseUserRoles">
+        <MappingFragment StoreEntitySet="tbl_Roles">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlyExpenditures">
+      <EntityTypeMapping TypeName="SplitwiseModel.MonthlyExpenditure">
+        <MappingFragment StoreEntitySet="tbl_MonthlyExpenditure">
+          <ScalarProperty Name="SharedWithMe" ColumnName="SharedWithMe" />
+          <ScalarProperty Name="SharedWith" ColumnName="SharedWith" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DateBought" ColumnName="DateBought" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="ExpID" ColumnName="ExpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Balance">
+      <EntityTypeMapping TypeName="SplitwiseModel.tbl_Balance">
+        <MappingFragment StoreEntitySet="tbl_Balance">
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InsertListItems" FunctionName="SplitwiseModel.Store.InsertListItems" />
+    <FunctionImportMapping FunctionImportName="UpdateBalances" FunctionName="SplitwiseModel.Store.UpdateBalances" />
+    <FunctionImportMapping FunctionImportName="UpdateListItems" FunctionName="SplitwiseModel.Store.UpdateListItems" />
+    <FunctionImportMapping FunctionImportName="updt_User" FunctionName="SplitwiseModel.Store.updt_User" />
+  </EntityContainerMapping>
+</Mapping>

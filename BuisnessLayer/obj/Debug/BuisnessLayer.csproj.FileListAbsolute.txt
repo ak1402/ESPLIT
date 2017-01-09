@@ -1,0 +1,10 @@
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\BuisnessLayer\obj\Debug\BuisnessLayer.csprojResolveAssemblyReference.cache
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\BuisnessLayer\bin\Debug\BuisnessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\BuisnessLayer\bin\Debug\BuisnessLayer.pdb
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\BuisnessLayer\obj\Debug\BuisnessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\BuisnessLayer\obj\Debug\BuisnessLayer.pdb
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\BuisnessLayer\bin\Debug\BuisnessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\BuisnessLayer\bin\Debug\BuisnessLayer.pdb
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\BuisnessLayer\obj\Debug\BuisnessLayer.csprojResolveAssemblyReference.cache
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\BuisnessLayer\obj\Debug\BuisnessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\BuisnessLayer\obj\Debug\BuisnessLayer.pdb

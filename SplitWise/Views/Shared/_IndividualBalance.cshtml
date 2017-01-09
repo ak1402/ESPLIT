@@ -1,0 +1,39 @@
+﻿@using DataAccessLayer.Models
+@{
+    decimal CurrentUserBalance =  ViewBag.CurrentUserBalanceViewBag;
+    SplitwiseEntities db = new SplitwiseEntities();
+}
+    @if(CurrentUserBalance !=0)
+    {
+    foreach(KeyValuePair<int, decimal> balance in Model)
+    {
+        <tr>
+        @{
+        
+                if(CurrentUserBalance<0)
+                {
+        
+                    <td>Has to give</td>
+            
+                    <td>@db.SplitwiseUsers.FirstOrDefault(user=>user.UserID==balance.Key).UserName</td>
+            
+                    <td style="color:red">Rs @Math.Abs(Math.Round(balance.Value, 2))</td>
+        
+                }
+                else
+                {
+                    <td>Has to take from</td>
+                    <td>@db.SplitwiseUsers.FirstOrDefault(user=>user.UserID==balance.Key).UserName</td>
+            
+                    <td style="color:green">Rs @Math.Abs(Math.Round(balance.Value,2))</td>
+                }
+        
+          }
+        </tr>
+    }
+    }
+    else
+    {
+        <tr><td style="color:green"> Hurray!!! You Owe Nobody  </td></tr>
+    }
+    

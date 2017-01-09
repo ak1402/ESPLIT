@@ -1,0 +1,16 @@
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\bin\Debug\EntityFramework.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\bin\Debug\EntityFramework.xml
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Code\DOTNET\MVC\MiniProject\SplitWise\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\bin\Debug\EntityFramework.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\bin\Debug\EntityFramework.xml
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Code\DOTNET\MVC\MiniProject\SplitWiseBak\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

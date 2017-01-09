@@ -1,0 +1,77 @@
+﻿@model DataAccessLayer.Models.MonthlyExpenditure
+@{
+    //Layout = null;
+    IEnumerable<DataAccessLayer.Models.SplitwiseUser> Users = (List<DataAccessLayer.Models.SplitwiseUser>)ViewData["ListOfUser"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>Create</title>
+</head>
+<body>
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/MYJBundle")
+    
+    <script type="text/javascript">
+        $(window).load(function () {          
+                
+            $('#DateBought').datepicker();
+            
+        });
+    </script>
+    
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>MonthlyExpenditure</legend>
+    
+           
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Item)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Item)
+                @Html.ValidationMessageFor(model => model.Item)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DateBought)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DateBought)
+                @Html.ValidationMessageFor(model => model.DateBought)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Price)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price)
+            </div>
+    
+             @using (Html.BeginForm("Create", "UserDetails", FormMethod.Get))
+                {
+                    
+                    <h6 target="popup" onclick="window.open('','popup','width=600,height=600'); return false;">Select User</h6>
+                    @Html.Partial("ListOfUserCheckBox", Users);
+                }
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+   
+    
+    <div>
+        @Html.ActionLink("Back to List", "Welcome")
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/themes/base/jquery.carousel-3d.default.css">
+    
+    @Scripts.Render("~/bundles/corousels")
+    @Styles.Render("~/Content/themes/Hover")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.nivo.slider.js"></script>
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+    <style>
+    html, body {
+      margin: 0px;
+    }
+    .wrapper {
+      width: 100%;
+    }
+  </style>
+<body>
+<div>
+        <h1>Split expenses with friends. </h1><br />
+        Splitwise takes the trouble out of sharing expenses – with friends, with roommates, with anyone.
+        
+ </div><br /> 
+     <div class="wrapper">
+  <div data-carousel-3d>
+    <img src="~/Images/1.jpg" selected />
+    <img src="~/Images/2.jpg" />
+    <img src="~/Images/3.jpg" />
+    <img src="~/Images/4.jpg" />
+    <img src="~/Images/5.jpg" />
+    
+  </div>   
+    
+    
+    <div>
+        <h1> IOUs made easy.</h1><br />
+        Share bills and IOUs. Make sure everyone gets paid back. Totally free for web, iPhone, and Android.
+    </div><br />
+    <div class="container">
+            
+            <table class="main">
+                <tr >
+                    <td class ="view view-first">
+                    <img src="~/images/MAC.png" />
+                        <div class="mask">
+                        <h2>We do the math for you</h2>
+                        
+                        <p style="font-weight:bold">Splitwise keeps a running total over time, so you can pay each other back in one big payment, instead of a bunch of small ones.</p>
+                        
+                    </div>
+                    </td>
+                    <td class ="view view-first">
+                        <img src="~/images/iPhone.png" />
+                        <div class="mask">
+                        <h2>Bring Splitwise anywhere</h2>                        
+                        <p style="font-weight:bold">No need to save the receipt! With mobile apps for iPhone and Android, you can add expenses as soon as they happen. </p>
+                        
+                    </div>
+                    </td>
+                </tr>
+            </table>
+          
+        </div>
+   
+</div>
+    
+</body>
+</html>
